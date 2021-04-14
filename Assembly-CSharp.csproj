@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player Scripts\PlayerFootsteps.cs" />
     <Compile Include="Assets\Scripts\Weapons Scripts\ArrowBowScript.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\AttackScript.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\HealthScript.cs" />
     <Compile Include="Assets\Scripts\Weapons Scripts\WeaponHandler.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerMovement.cs" />
@@ -67,8 +69,10 @@
     <Compile Include="Assets\Scripts\Helper Scripts\TagHolder.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerSprintAndCrouch.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Scripts\Player Scripts\AttackScript.cs" />
-    <Compile Include="Assets\Scripts\Player Scripts\HealthScript.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\PlayerAxeWooshSound.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\EnemyAudio.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Game Manager Scripts\EnemyManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\FPS Survival Assets\Shaders\Standard\_Antialiasing\FXAAPreset2.shader" />

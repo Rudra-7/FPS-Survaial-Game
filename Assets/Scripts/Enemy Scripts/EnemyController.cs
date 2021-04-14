@@ -36,12 +36,16 @@ public class EnemyController : MonoBehaviour
 
     public GameObject attackPoint;
 
+    private EnemyAudio enemyAudio;
+
     private void Awake()
     {
         enemyAnime = GetComponent<EnemyAnimator>();
         navAgent = GetComponent<NavMeshAgent>();
 
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+
+        enemyAudio = GetComponentInChildren<EnemyAudio>();
     }
 
     // Start is called before the first frame update
@@ -106,6 +110,7 @@ public class EnemyController : MonoBehaviour
 
 
             // play spotted audio
+            enemyAudio.PlayScreemSound();
         }
 
 
@@ -184,6 +189,7 @@ public class EnemyController : MonoBehaviour
             attackTimer = 0f;
 
             // play attack sound
+            enemyAudio.PlayAttackSound();
 
         }
 

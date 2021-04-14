@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
         if(weaponManager.GetCurrentSelectedWeapon().fireType == WeaponFireType.MULTIPLE)
         {
             // press and hold AND
-            // TIme is greater than the next Time to fire
+            // Time is greater than the next Time to fire
             if(Input.GetMouseButton(0) && Time.time > nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1f / fireRate;

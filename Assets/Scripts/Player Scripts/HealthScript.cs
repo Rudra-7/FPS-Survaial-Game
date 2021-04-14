@@ -15,6 +15,10 @@ public class HealthScript : MonoBehaviour
 
     private bool isDead;
 
+    private EnemyAudio enemyAudio;
+
+    private PlayerStats playerStats;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -26,11 +30,12 @@ public class HealthScript : MonoBehaviour
             navAgent = GetComponent<NavMeshAgent>();
 
             // get enemy audio
+            enemyAudio = GetComponentInChildren<EnemyAudio>();
         }
 
         if (isPlayer)
         {
-
+            playerStats = GetComponent<PlayerStats>();
         }
 
         
@@ -47,6 +52,7 @@ public class HealthScript : MonoBehaviour
         if (isPlayer)
         {
             // show the stats
+            playerStats.DisplayHealthStats(health);
         }
 
         if(isBoar || isCannibal)
@@ -82,6 +88,7 @@ public class HealthScript : MonoBehaviour
             //startCoroutine
 
             // enemyManager spawn more enemy
+            EnemyManager.instance.EnemyDied(true);
         }
 
         if (isBoar)
@@ -92,9 +99,10 @@ public class HealthScript : MonoBehaviour
 
             enemyAnime.Dead();
 
-            //startCoroutine
+            StartCoroutine(DeadSound());
 
             // enemyManager spawn more enemy
+            EnemyManager.instance.EnemyDied(false);
         }
         if (isPlayer)
         {
@@ -106,6 +114,7 @@ public class HealthScript : MonoBehaviour
             }
 
             // call enemy manager to stop spawing enemies
+            EnemyManager.instance.StopSpawning();
 
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerAttack>().enabled = false;
@@ -134,6 +143,12 @@ public class HealthScript : MonoBehaviour
     void TurnOffGameObject()
     {
         gameObject.SetActive(false);
+    }
+
+    IEnumerator DeadSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        enemyAudio.PlayDeadSound();
     }
 }// end of class
 
